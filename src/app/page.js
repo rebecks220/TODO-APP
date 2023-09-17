@@ -1,9 +1,8 @@
-"use client"
 import Profiles from './components/profiles'
 
 export default function Home() {
   return (
-    <main className="">
+    <main >
       
       <Profiles />
     

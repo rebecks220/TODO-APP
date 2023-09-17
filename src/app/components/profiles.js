@@ -9,16 +9,21 @@ const [todos , setTodo] = useState("");
 // add a todo
 async function handleSubmit(e) {
   e.preventDefault();
-  
-  const { data, error } = await supabase.from('todos').insert([
-    { todos },
-  ])
+  if (todos === "") {
+    alert("kindly input your todo")
+  } else {
+    const { data, error } = await supabase.from('todos').insert([
+      { todos },
+    ])
+  }
+
   if (!error) {
     alert("todo added to database, refresh page for changes.");
     setTodo("");
   } else {
     alert(error)
   }
+  
 }
 
   return (
