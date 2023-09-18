@@ -24,6 +24,18 @@ export default function TodoList () {
         alert(error)
     }
     }
+    // delete all todos
+    async function handleDeleteAll() {
+      
+    
+    const { error } = await supabase.from('todos').delete().eq('todos', 'eq', "do not delete me");
+    if (!error) {
+      alert("deleted all successfully.")
+    } else (
+      alert(error),
+      console.log(error)
+    )
+    }
 
     useEffect(() => {
         fetchData();
@@ -52,7 +64,7 @@ export default function TodoList () {
         ))}
     </ul>
 
-    <button className='bg-[#E2DFD2] text-[#fff] p-[.6rem] ml-[.6rem] font-semibold hover:scale-[115%] hover:bg-[#DC143C] transition rounded-[1rem] mt-[1rem]'>Clear todos</button>
+    <button className='bg-[#E2DFD2] text-[#fff] p-[.6rem] ml-[.6rem] font-semibold hover:scale-[115%] hover:bg-[#DC143C] transition rounded-[1rem] mt-[1rem]' onClick={handleDeleteAll}>Clear todos</button>
     </div>
 
   )
