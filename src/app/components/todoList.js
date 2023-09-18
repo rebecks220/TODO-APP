@@ -30,7 +30,7 @@ export default function TodoList () {
     
     const { error } = await supabase.from('todos').delete().not('todos', 'eq', "do not delete me");
     if (!error) {
-      alert("deleted all successfully.")
+      alert("deleted all successfully,refresh for changes.")
     } else (
       alert(error),
       console.log(error)
