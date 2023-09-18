@@ -28,7 +28,7 @@ export default function TodoList () {
     async function handleDeleteAll() {
       
     
-    const { error } = await supabase.from('todos').delete().eq('todos', 'eq', "do not delete me");
+    const { error } = await supabase.from('todos').delete().not('todos', 'eq', "do not delete me");
     if (!error) {
       alert("deleted all successfully.")
     } else (
